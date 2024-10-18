@@ -30,6 +30,7 @@ export const usePatients = ({ initialPage = 1 }: UsePatientsProps) => {
           params,
           headers: {
             Authorization: `Bearer ${token}`,
+            withCredentials: true,
           },
         }
       );

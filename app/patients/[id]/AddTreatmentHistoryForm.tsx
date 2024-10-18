@@ -75,7 +75,7 @@ export default function AddMedicationHistoryForm({}: {
     //       headers: {
     //         'Content-Type': 'application/json',
     //         Authorization: 'Bearer ' + token,
-    withCredentials: true;
+    // withCredentials: true;
     //       },
     //       data: formData,
     //     }
