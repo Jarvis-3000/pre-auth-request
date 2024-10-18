@@ -93,6 +93,23 @@ export default function AddAuthRequestForm({
     });
   };
 
+  const resetData = () => {
+    setFormData({
+      treatmentType: '',
+      insurancePlan: '',
+      dateOfService: new Date(),
+      diagnosisCode: '',
+      doctorNotes: '',
+    });
+    setErrors({
+      treatmentType: '',
+      insurancePlan: '',
+      dateOfService: '',
+      diagnosisCode: '',
+      doctorNotes: '',
+    });
+  };
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
@@ -108,6 +125,7 @@ export default function AddAuthRequestForm({
           headers: {
             'Content-Type': 'application/json',
             Authorization: 'Bearer ' + token,
+            withCredentials: true,
           },
           data: { ...formData, patientId },
         }
@@ -127,15 +145,21 @@ export default function AddAuthRequestForm({
       toast.error(message);
       console.error('Error during sending pre authorization request:', error);
     } finally {
+      resetData();
       setLoading(false);
     }
+  };
+
+  const closeDialog = (open) => {
+    setOpen(open);
+    resetData();
   };
 
   let formattedDate: any = new Date(formData.dateOfService);
   formattedDate = formattedDate.toISOString().split('T')[0];
 
   return (
-    <Dialog open={open} onOpenChange={setOpen}>
+    <Dialog open={open} onOpenChange={closeDialog}>
       <DialogTrigger asChild>
         <Button onClick={() => setOpen(true)}>
           <Plus className='h-4 w-4' /> Pre Auth Request

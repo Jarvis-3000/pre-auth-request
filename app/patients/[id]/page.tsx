@@ -55,7 +55,7 @@ export default function PatientByIdPage() {
       fetchPatient();
       fetchPreAuthorizations();
     }
-  }, [id, token, fetchPatient, fetchPreAuthorizations]);
+  }, [id, token]);
 
   if (loading || !patient) {
     return <div>Loading...</div>;

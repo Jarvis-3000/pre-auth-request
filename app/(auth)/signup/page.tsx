@@ -75,7 +75,9 @@ export default function SignUp() {
         `${process.env.NEXT_PUBLIC_SERVER_API_URL}/auth/signup`,
         {
           method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
+          headers: {
+            'Content-Type': 'application/json',
+          },
           data: formData,
         }
       );
