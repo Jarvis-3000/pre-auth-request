@@ -35,7 +35,6 @@ export default function PatientByIdPage() {
         {
           headers: {
             Authorization: `Bearer ${token}`,
-            withCredentials: true,
           },
         }
       );

@@ -36,7 +36,6 @@ export const usePreAuthorizations = ({
           params,
           headers: {
             Authorization: `Bearer ${token}`,
-            withCredentials: true,
           },
         }
       );

@@ -87,7 +87,6 @@ export const AddPatient = ({ onAdd }: { onAdd: () => void }) => {
           headers: {
             'Content-Type': 'application/json',
             Authorization: `Bearer ${token}`,
-            withCredentials: true,
           },
           data: form,
         }
